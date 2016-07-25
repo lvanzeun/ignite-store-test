@@ -1,0 +1,10 @@
+# Eclipse ignores
+
+.classpath
+.project
+
+.settings/
+
+# Maven ignores
+
+target/
