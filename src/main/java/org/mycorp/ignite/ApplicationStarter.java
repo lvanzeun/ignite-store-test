@@ -132,16 +132,15 @@ public final class ApplicationStarter {
 		qryEntities.add(queryEntityBalance());
 
 		ccfg.setQueryEntities(qryEntities);
-		
+
 		ccfg.setCacheStoreFactory(storeFactory);
-		
+
 		// Configure cache to use store.
 		ccfg.setReadThrough(true);
 		ccfg.setWriteThrough(true);
 
 		// Enable database batching.
-		//ccfg.setWriteBehindEnabled(true);
-
+		ccfg.setWriteBehindEnabled(true);
 	}
 
 	/**
@@ -269,7 +268,7 @@ public final class ApplicationStarter {
 		qryEntity.setKeyType("org.mycorp.ignite.model.AccountKey");
 		qryEntity.setValueType("org.mycorp.ignite.model.Account");
 
-		// Query fields for PERSON.
+		// Query fields for ACCOUNT.
 		LinkedHashMap<String, String> fields = new LinkedHashMap<>();
 
 		fields.put("reference", "String");
@@ -277,7 +276,7 @@ public final class ApplicationStarter {
 
 		qryEntity.setFields(fields);
 
-		// Indexes for PERSON.
+		// Indexes for ACCOUNT.
 		Collection<QueryIndex> idxs = new ArrayList<>();
 
 		idxs.add(new QueryIndex("REFERENCE", true, "PRIMARY_KEY"));
@@ -286,7 +285,7 @@ public final class ApplicationStarter {
 
 		return qryEntity;
 	}
-	
+
 	private static QueryEntity queryEntityCustomer() {
 
 		QueryEntity qryEntity = new QueryEntity();
@@ -294,7 +293,7 @@ public final class ApplicationStarter {
 		qryEntity.setKeyType("org.mycorp.ignite.model.CustomerKey");
 		qryEntity.setValueType("org.mycorp.ignite.model.Customer");
 
-		// Query fields for PERSON.
+		// Query fields for CUSTOMER.
 		LinkedHashMap<String, String> fields = new LinkedHashMap<>();
 
 		fields.put("name", "String");
@@ -302,7 +301,7 @@ public final class ApplicationStarter {
 
 		qryEntity.setFields(fields);
 
-		// Indexes for ACCOUNT.
+		// Indexes for CUSTOMER.
 		Collection<QueryIndex> idxs = new ArrayList<>();
 
 		idxs.add(new QueryIndex("NAME", true, "PRIMARY_KEY"));
@@ -311,7 +310,7 @@ public final class ApplicationStarter {
 
 		return qryEntity;
 	}
-	
+
 	private static QueryEntity queryEntityBalance() {
 
 		QueryEntity qryEntity = new QueryEntity();
@@ -319,7 +318,7 @@ public final class ApplicationStarter {
 		qryEntity.setKeyType("org.mycorp.ignite.model.BalanceKey");
 		qryEntity.setValueType("org.mycorp.ignite.model.Balance");
 
-		// Query fields for PERSON.
+		// Query fields for BALANCE.
 		LinkedHashMap<String, String> fields = new LinkedHashMap<>();
 
 		fields.put("id", "Long");
@@ -330,7 +329,7 @@ public final class ApplicationStarter {
 
 		qryEntity.setFields(fields);
 
-		// Indexes for ACCOUNT.
+		// Indexes for BALANCE.
 		Collection<QueryIndex> idxs = new ArrayList<>();
 
 		idxs.add(new QueryIndex("ID", true, "PRIMARY_KEY"));
