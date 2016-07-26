@@ -75,7 +75,7 @@ public final class SimpleTest {
 				logger.info("SQLJoin(cursor)=" + row);
 			}
 		}
-		Assertions.assertThat(rowCount).isEqualTo(5);
+		Assertions.assertThat(rowCount).isEqualTo(2);
 
 		List<?> allResults = accountCache.query(new SqlFieldsQuery(sql).setArgs("Cust1")).getAll();
 
