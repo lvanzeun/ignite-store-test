@@ -7,8 +7,35 @@
 	- JDBC URL 'jdbc:h2:tcp://localhost/~/ExampleDb'
 	- user 'sa'
 	- pwd - blank password
-	
-3. Start a node launching 'org.mycorp.ignite.NodeStarter' application
 
-4. Run the tests 
+3. Create required tables
+
+
+DROP TABLE IF EXISTS PUBLIC.PERSON;
+
+CREATE TABLE PUBLIC.PERSON (
+	REFERENCE 		VARCHAR PRIMARY KEY,
+	OWNER 			VARCHAR 
+);
+
+DROP TABLE  IF EXISTS PUBLIC.CUSTOMER;
+
+CREATE TABLE PUBLIC.CUSTOMER (
+	NAME 			VARCHAR	PRIMARY KEY,
+	COUNTRYISOCODE 	VARCHAR
+);
+
+DROP TABLE  IF EXISTS PUBLIC.BALANCE;
+
+CREATE TABLE PUBLIC.BALANCE (
+	ID 				BIGINT 	PRIMARY KEY,
+	ACCOUNTREF 		VARCHAR,
+	DATE 			DATE,
+	VALUE 			DECIMAL
+);
+
+
+4. Start a node launching 'org.mycorp.ignite.NodeStarter' application
+
+5. Run the tests 
 	e.g. mvn test

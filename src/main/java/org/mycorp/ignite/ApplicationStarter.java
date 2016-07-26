@@ -40,7 +40,7 @@ public final class ApplicationStarter {
 
 	private static final String H2_USERNAME = "sa";
 
-	private static final String H2_TCP_URL = "jdbc:h2:tcp://localhost/~/ExampleDb";
+	private static final String H2_TCP_URL = "jdbc:h2:file:~/ExampleDb;IFEXISTS=TRUE";
 
 	/**
 	 * Name of the single cache
